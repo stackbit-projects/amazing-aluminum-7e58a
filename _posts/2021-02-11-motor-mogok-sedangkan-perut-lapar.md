@@ -1,17 +1,16 @@
 ---
 layout: post
 title: Motor Mogok Sedangkan Perut Lapar
-date: 2021-02-11 02:30:00 +0700
+date: '2021-02-11 02:30:00 +0700'
 author: WilFauzy
 thumb_img_path: img/dorong-motor_2510.jpg
 thumb_img_alt: motor mogok
 content_img_path: img/dorong-motor_2510.jpg
-content_img_alt: mojok mogok
+content_img_alt: motok mogok
 excerpt: >- 
-Namun suara knalpot yang merdu berubah menjadi suara gelembung dalam lumpur "belekepek2" beberapa detik kemudian mesin motor butut ini mati, ahh sialan sepertinya bensinya habis
+Namun suara knalpot yang merdu berubah menjadi suara gelembung dalam lumpur belekepek2 beberapa detik kemudian mesin motor butut ini mati, ahh sialan sepertinya bensinya habis
 tags:
 - note
-
 ---
 Sehabis isya waktunya untuk santai sejenak di ruang tengah sambil menonton video di youtube, mulai dari mendengarkan story telling dari detective aldo dan selanjutnya video random di beranda youtube yang berdurasi kurang dari satu menit. 
 
