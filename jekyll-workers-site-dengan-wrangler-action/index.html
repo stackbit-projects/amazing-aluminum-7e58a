@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+    <head>    
+
+        <title>Jekyll Workers Site Dengan Wrangler Action - Stackbit Ampersand Theme</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="<p>Setelah penghujung akhir tahun blog ini pindah dari wordpress ke jekyll lalu dihost dengan github pages, akhirnya mencoba dengan workers site salah fitur yang sudah ada sejak lama di dahbord cloudflare namun hanya diklik.</p>
+
+"/>
+        <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700%7CRoboto:400,400i,700,700i&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="/assets/css/main.css">
+         
+        
+        
+        
+        
+        
+        
+    </head>
+    <body>
+        
+          <div id="page" class="site layout-grid palette-green">
+
+    <header id="masthead" class="site-header outer">
+  <div class="inner">
+    <div class="site-header-inside">
+
+      <div class="site-branding">
+        
+        
+        <p class="site-logo">
+          <a href='/'><img src="/images/logo.svg"
+            alt="Ampersand Logo" /></a>
+        </p>
+        
+        
+        <p class="site-title"><a href='/'>Ampersand</a></p>
+        
+      </div><!-- .site-branding -->
+
+      
+      
+      <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Menu</span><span class="icon-menu"
+        aria-hidden="true"></span></button>
+      <nav id="main-navigation" class="site-nav" aria-label="Main Navigation">
+        <div class="site-nav-inside">
+          <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Menu</span><span class="icon-close"
+              aria-hidden="true"></span></button>
+          <ul class="menu">
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/"
+  
+  
+  class="">
+  
+    Home
+  
+</a>
+
+              </li>
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/about"
+  
+  
+  class="">
+  
+    About
+  
+</a>
+
+              </li>
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/style-guide"
+  
+  
+  class="">
+  
+    Style Guide
+  
+</a>
+
+              </li>
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/contact"
+  
+  
+  class="">
+  
+    Contact
+  
+</a>
+
+              </li>
+            
+          </ul><!-- .menu -->
+        </div><!-- .site-nav-inside -->
+      </nav><!-- .site-navigation -->
+      
+
+    </div><!-- .site-header-inside -->
+  </div><!-- .inner -->
+</header><!-- .site-header -->
+
+
+    <div id="content" class="site-content outer">
+      <main id="main" class="site-main inner">
+
+          <article class="post post-full">
+    <header class="post-header inner-md">
+      <div class="post-meta">
+        <time class="published"
+          datetime="2021-02-05 07:00">Friday, February  5, 2021</time>
+      </div>
+      <h1 class="post-title">Jekyll Workers Site Dengan Wrangler Action</h1>
+      
+      
+    </header><!-- .post-header -->
+    
+    
+    <div class="post-content inner-md">
+      <p>Setelah penghujung akhir tahun blog ini pindah dari wordpress ke jekyll lalu dihost dengan github pages, akhirnya mencoba dengan workers site salah fitur yang sudah ada sejak lama di dahbord cloudflare namun hanya diklik.</p>
+
+<h2 id="belajar-cloudflare-workers">Belajar cloudflare workers</h2>
+
+<p>Percobaan yang panjang belajar tentang workers, pertama hanya menggunakan konsol javascript dengan fungsi untuk mengalihkan alamat lama ke alamat baru dengan massal <a href="https://wildanfauzy.com/bulk-redirect-domain-dengan-workers/" title="bulk redirect">bulk redirect</a>.</p>
+
+<p>Masa transisi ke static site memang cukup menyita banyak waktu. mulai dari meng-convert semua postingan ke format yang baru, sialnya jumlah postingan dari 2012 sampai sekarang banyak yang tidak singkron.</p>
+
+<p>Alhasil tidak semua tertata dengan rapih, yang terpentik permalink postingan tidak berubah dan gambar thumbnail masih tersimpan, mungkin ada beberapa  gambar dalam postingan yang rusak.</p>
+
+<p>Setelah berhasil pindah ke static site yang kami rasakan semakin produktif, tidak ada lagi setiap ingin menulis postingan terganggu oleh notifikasi update tema atau plugins, atau komentar spam yang banyak, apalagi sering sekali blog terkena brute force attack membuat blog sering internal server error.</p>
+
+<h2 id="masa-percobaan-trial-and-error">Masa Percobaan Trial and Error</h2>
+
+<p>Hal yang dirasakan setelah pindah ke ssg jekyll di github pages kini mencoba workers site, sebelum menerapkan cloudflare workers di blog ini, percobaan adalah di blog aidanblog.com.</p>
+
+<p>Banyak error dan trial, tapi setelah percobaan yang berulang akhirnya berhasil, perlu diingat workers site versi gratis ada limitasi, sehingga perlu diperhatikan deploy time yang efesien.</p>
+
+<p>Pertama mencoba dengan wrangler CLI, namun proses instalasi wrangler di laptop cuku sulit, install melalui NPM banyak masalah seperti permission denied, lalu berhasil install wrangler menggunakan cargo.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install -g @cloudflare/wrangler
+wrangler config
+wrangler generate --site my-site
+cd my-site
+wrangler publish
+</code></pre></div></div>
+
+<p>Percobaan deploy local di komputer tetapi membutuhkan waktu yang cukup lama karena harus mendeploy jekyll sebelumnya lalu publih ke KV namespace menggunakan wrangler.</p>
+
+<p>Lalu Percobaan kedua dengan landing page menggunakan gatsby yang saya sudah posting <a href="https://wildanfauzy.com/deploy-gatsby-website-di-cloudflare-workers/" title="deploy gatsby to workers">deploy gatsby ke cloudflare workers</a> namun car tersebut kurang efesien jika kalian mengupdate postingan setiap hari.</p>
+
+<h2 id="deploy-dan-publish-dengan-wrangler-github-action">Deploy dan Publish dengan Wrangler Github Action</h2>
+
+<p>Lalu percobaan selanjutnya dengan blog portofolio di a.idan.my.id (gatsby) dan blog gado-gado catatan sehari-hari di aidanblog.com (jekyll) akhirnya mendapatkan yang efesien.</p>
+
+<p>Pertama build jekyll site dengan docker mendapatkan build time yang efesien yaitu 32 detik dengan postingan ratusan, sebelumnya dengan menginstall bundler dan bundle exec yang memakan waktu empat menit, build jekyll site with docker.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name: Jekyll site CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the site in the jekyll/builder container
+      run: |
+        docker run \
+        -v $:/srv/jekyll -v $/_site:/srv/jekyll/_site \
+        jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll &amp;&amp; jekyll build --future"
+</code></pre></div></div>
+
+<p>Menggunakan docker walapun cepat namun menggenerate setiap saat melakukan push ke repo, tidak bisa menggunakan cache. setelah berhasil build jekyll selanjutnya menginstall wrangler action.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - uses: actions/checkout@v2
+      - name: Publish
+        uses: cloudflare/wrangler-action@1.3.0
+        with:
+          apiToken: $
+</code></pre></div></div>
+
+<p>Namun di cloudflare workers free ada batasan yang paling sering mengganggu adalah masalah write and read yang dibatasi 1000 request setiap harinya, alhasil selalu kena limit, untuk mengatasinya dengan menyetel cron jobs di workflows.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>on:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - uses: actions/checkout@master
+      - name: Publish app
+        uses: cloudflare/wrangler-action@1.2.0
+        with:
+          apiToken: $
+</code></pre></div></div>
+
+<p>Hasil akhir mendapatkan build time satu menit sampai berhasil publish ke cloudflare dengan steps build jekyll site dengan docker dan install wrangler setelah itu publish site, lalu mengatur cron jobs setiap enam jam sekali untuk meminimalisir limits, seperti ini pangaturan workflows yang digunakan di blog ini.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name: Deploy to workers-site
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Build the site in the jekyll/builder container
+      run: |
+        docker run \
+        -v $:/srv/jekyll -v $/_site:/srv/jekyll/_site \
+        jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll &amp;&amp; jekyll build"
+    - name: Install Wrangler
+      run: sudo npm i @cloudflare/wrangler -g
+
+    - name: Publish
+      uses: cloudflare/wrangler-action@1.2.0
+      env:
+        USER: root
+      with:
+        apiToken: $
+        environment: 'production'
+</code></pre></div></div>
+
+<p>Setelah itu berhasil menggunakan workers-site dengan build time yang efesien, selanjutnya membuat konfigurasi wrangler.toml dan akhirnya bisa memilih bucket ke _site setelah build jekyll dengan docker.</p>
+
+<p>Selamat mencoba, jika ingin melihat repo gihub blog ini bisa dilihat di bagiang footer dan klik (<a href="https://github.com/NgopiBrek/WildanFauzy.com" title="jekyll workers">view source</a>) untuk melihat pengaturan yang saya gunakan dengan wrangler github action, terinspirasi oleh repostory <a href="https://github.com/vences/hugo-workers" title="hugo workers">vences/hugo-workers</a></p>
+
+    </div><!-- .post-content -->
+  </article><!-- .post -->
+
+  <!-- Next/previous post navigation TBD -->
+  <!--
+  <nav class="post-navigation">
+    <h2 class="post-nav-title">Read Next</h2>
+    <div class="post-feed">
+      <article class="post post-card">
+        <div class="post-card-inside">
+          <a class="post-card-thumbnail" href="#">
+            <img class="thumbnail" src="#" alt="" />
+          </a>
+          <div class="post-card-content">
+            <header class="post-header">
+              <div class="post-meta">
+                <time class="published" datetime="">Previous post date</time>
+              </div>
+              <h3 class="post-title"><a href="#" rel="bookmark">Previous Post Title</a></h3>
+            </header>
+            <div class="post-excerpt">
+              <p>Previous post excerpt</p>
+              <p class="read-more">
+                <a class="button button-secondary" href="#">Read more</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="post post-card">
+        <div class="post-card-inside">
+          <a class="post-card-thumbnail" href="#">
+            <img class="thumbnail" src="#" alt="" />
+          </a>
+          <div class="post-card-content">
+            <header class="post-header">
+              <div class="post-meta">
+                <time class="published" datetime="">Next post date</time>
+              </div>
+              <h3 class="post-title"><a href="#" rel="bookmark">Next Post Title</a></h3>
+            </header>
+            <div class="post-excerpt">
+              <p>Next post excerpt</p>
+              <p class="read-more">
+                <a class="button button-secondary" href="#">Read more</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </nav>
+  -->
+
+
+      </main><!-- .site-main -->
+    </div><!-- .site-content -->
+
+    
+    
+      <section class="subscribe outer">
+  <div class="inner-sm">
+    
+    
+    <h2 class="subscribe-title">Subscribe for new updates</h2>
+    
+    
+    
+    <p class="subscribe-text">
+      Subscribe to my email newsletter to receive useful articles and special offers. This monthly email is sent out on the first of every month.
+    </p>
+    
+    <form name="subscribeForm" action="/subscribe-success" method="POST" data-netlify-honeypot="bot-field" data-netlify="true" class="subscribe-form">
+  <div class="screen-reader-text">
+    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+  </div>
+  <div class="form-group">
+    <label>
+      <span class="screen-reader-text">Email address</span>
+      <input type="email" name="email" placeholder="Your email address" required>
+    </label>
+  </div>
+  <input type="hidden" name="form-name" value="subscribeForm" />
+  <button class="button" type="submit">Subscribe</button>
+</form><!-- .subscribe-form -->
+
+  </div><!-- inner-sm -->
+</section><!-- .subscribe -->
+
+    
+
+    <footer id="colophon" class="site-footer outer">
+  <div class="inner">
+    <div class="site-footer-inside">
+      <div class="site-info">
+        
+        
+        <span class="copyright">&copy; Stackbit. All rights reserved. This Jamstack site was created with <a href="https://www.stackbit.com/?utm_source=deployed-footer" target="_blank" rel="noopener">Stackbit</a>. Create yours <a href="https://app.stackbit.com/create?theme=ampersand&utm_source=deployed-footer" target="_blank" rel="noopener">now</a>.</span>
+        
+        
+      </div><!-- .site-info -->
+      
+      
+      <div class="social-links">
+        
+          
+          
+<a href="https://twitter.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-twitter" aria-hidden="true"></span><span class="screen-reader-text">Twitter</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://www.instagram.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-instagram" aria-hidden="true"></span><span class="screen-reader-text">Instagram</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://github.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-github" aria-hidden="true"></span><span class="screen-reader-text">GitHub</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://www.linkedin.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-linkedin" aria-hidden="true"></span><span class="screen-reader-text">LinkedIn</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://dev.to/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-dev" aria-hidden="true"></span><span class="screen-reader-text">DEV</span>
+  
+</a>
+
+        
+      </div><!-- .social-links -->
+      
+    </div><!-- .site-footer-inside -->
+  </div><!-- .inner -->
+</footer><!-- .site-footer -->
+
+
+  </div><!-- .site -->
+
+        <!-- Scripts -->
+        <script src="/assets/js/plugins.js"></script>
+        <script src="/assets/js/main.js"></script>
+    </body> 
+</html>

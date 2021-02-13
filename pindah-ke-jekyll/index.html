@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+    <head>    
+
+        <title>Pindah Ke Jekyll - Stackbit Ampersand Theme</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="<p>Semua bermula ketika ingin menulis di tengah malam, seperti biasanya menulis di aplikasi wordpress versi android, tapi ada yang aneh, tidak bisa dibuka terus, wahh sepertinya error nih aplikasi, padahal kuota malam masih melimpah banyak.</p>
+
+"/>
+        <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700%7CRoboto:400,400i,700,700i&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="/assets/css/main.css">
+         
+        
+        
+        
+        
+        
+        
+    </head>
+    <body>
+        
+          <div id="page" class="site layout-grid palette-green">
+
+    <header id="masthead" class="site-header outer">
+  <div class="inner">
+    <div class="site-header-inside">
+
+      <div class="site-branding">
+        
+        
+        <p class="site-logo">
+          <a href='/'><img src="/images/logo.svg"
+            alt="Ampersand Logo" /></a>
+        </p>
+        
+        
+        <p class="site-title"><a href='/'>Ampersand</a></p>
+        
+      </div><!-- .site-branding -->
+
+      
+      
+      <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Menu</span><span class="icon-menu"
+        aria-hidden="true"></span></button>
+      <nav id="main-navigation" class="site-nav" aria-label="Main Navigation">
+        <div class="site-nav-inside">
+          <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Menu</span><span class="icon-close"
+              aria-hidden="true"></span></button>
+          <ul class="menu">
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/"
+  
+  
+  class="">
+  
+    Home
+  
+</a>
+
+              </li>
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/about"
+  
+  
+  class="">
+  
+    About
+  
+</a>
+
+              </li>
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/style-guide"
+  
+  
+  class="">
+  
+    Style Guide
+  
+</a>
+
+              </li>
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/contact"
+  
+  
+  class="">
+  
+    Contact
+  
+</a>
+
+              </li>
+            
+          </ul><!-- .menu -->
+        </div><!-- .site-nav-inside -->
+      </nav><!-- .site-navigation -->
+      
+
+    </div><!-- .site-header-inside -->
+  </div><!-- .inner -->
+</header><!-- .site-header -->
+
+
+    <div id="content" class="site-content outer">
+      <main id="main" class="site-main inner">
+
+          <article class="post post-full">
+    <header class="post-header inner-md">
+      <div class="post-meta">
+        <time class="published"
+          datetime="2020-12-03 16:38">Thursday, December  3, 2020</time>
+      </div>
+      <h1 class="post-title">Pindah Ke Jekyll</h1>
+      
+      
+    </header><!-- .post-header -->
+    
+    
+    <div class="post-content inner-md">
+      <p>Semua bermula ketika ingin menulis di tengah malam, seperti biasanya menulis di aplikasi wordpress versi android, tapi ada yang aneh, tidak bisa dibuka terus, wahh sepertinya error nih aplikasi, padahal kuota malam masih melimpah banyak.</p>
+
+<h2 id="alasan-pindah-ke-static-blog">Alasan Pindah Ke Static Blog</h2>
+
+<p>Dapat email dari jetpack bahwa website not responding, sudah hampir tiga kali mendapatkan pemberitahuan blog tidak bisa diakses, niat nulis pun jadi males sudah keburu tidak mood.</p>
+
+<p>Akhirnya mengakses dashboard wordpress time out terus, cek koneksi lancar, menghapus cache browser sudah tapi tetap tidak bisa diakses, akhirnya masuk ke hosting dan membuka cpanel muter terus time out.</p>
+
+<p>Mengecek website lain yang menyewa hosting yang sama ternyata sama-sama time out, akhirnya ngechat sama custumer service, ternyata dijawab begadang kayaknya tuh orang, ditanyain nama domain.</p>
+
+<blockquote>
+  <p>mas server yang ini lagi gangguan?</p>
+</blockquote>
+
+<blockquote>
+  <p>nama domain? jawabnya</p>
+</blockquote>
+
+<p>Chatting lumayan panjang malah kaya diintrogasi disangka bukan nyewa hosting di tempat ini, si cs liat dari whois domain, soalnya memang saya beli domain ditempat lain, malah dituduh bukan hosting disini, vangke.</p>
+
+<p>Hasilnya pertanyaan tidak terjawab, padahal dicek lah kalau error atau lagi gangguan, bukannya nanya balik ngalor ngidul, akhirnya masih ngelanjutin chat sama cs.</p>
+
+<p>Keesokan harinya bisa diakses lagi, tapi rasa kesal masih ada sama si cs, seharusnya tau lah pelanggannya kan ada data pelanggan, ahh sudahlah.</p>
+
+<h2 id="memilih-pindah-layanan">Memilih Pindah Layanan</h2>
+
+<p>Walaupun jatuh tempo hosting masih ada lima bulan lagi, akhirnya memilih pindah saja ke static site generator jekyll, karena sebelumnya sudah pernah buat iseng-iseng deploy hugo dan jekyll di blog pribadi <a href="https://aidanblog.com" title="Aidan">aidanblog.com</a></p>
+
+<p>Niat untuk menulis hilang, migrasi dari wordpress ke jekyll, memang banyak masalah yang dihadapi, pertama setelah menunggu hosting pulih langsung mengimpor semua postingan dengan plugin export to jekyll.</p>
+
+<p>Setelah itu membuat script shell untuk mencocokan dengan front matter agar sesuai dengan format di jekyll.</p>
+
+<p>Karena postingan terlalu banyak ratusan, alhasil waktu deploy lumayan lama, ditambah error yang bermunculan, seperti gambar tidak muncul, semalaman akhirnya beres.</p>
+
+<h2 id="banyak-fitur">Banyak Fitur</h2>
+
+<p>Salah satu niat migrasi ke static site generator adalah banyaknya fitur, yah kalau di wordpress self hosted memang jangan ditanya lagi plugin berhampuran mau nyari plugin apa saja ada.</p>
+
+<p>Namun fokus saya disini adalah cuma menulis, di blog wordpress cuma masang empat plugin yaitu.</p>
+
+<ul>
+  <li>Jetpack</li>
+  <li>Askimet</li>
+  <li>Litespeed Cache</li>
+  <li>Simple Seo</li>
+</ul>
+
+<p>Dan hampir semua plugin diatas minim konfigurasi, tapi masalah di wordpress adalah gutenberg yang bikin lemot kalau sedang mengetik, jarang sekali memposting lewat gutenberg, seringnya lewat aplikasi wordpress mobile terintegrasi dengan jetpack.</p>
+
+<p>Sedangkan di static site tidak kalau menarik karena selain bisa menulis secara tradisional di lokal komputer dengan aplikasi typora lalu push ke repo dengan perintah git push.</p>
+
+<p>Banyak pilihan CMS yang smooth, salah satunya Forestry sangat responsive untuk menulis, tidak opsi yang kadang bikin hilang fokus ketika menulis, dan tampilannya sangat minimalis entah itu di desktop maupun mobile.</p>
+
+<p>Selain Forestry ada juga CMS CloudCannon, layanan satu ini mah all in one bisa dihandle semua dari hosting optimisasi assest gambar dan juga editor untuk menulis, tinggal fokus menulis saja sisanya dilakukan oleh mesin dari cloudcannon otomatis sinkronisasi dengan repository.</p>
+
+<p>Alternatif github pages dan forestry tapi repostori harus public, jika ingin repo private bisa menggunakan netlify dan forestry atau netlifycms, pokokny masih banyak pilihan lainnya.</p>
+
+<h2 id="kesimpulan">Kesimpulan</h2>
+
+<p>Memilih pindah dari dinamis blog ke static blog banyak faktor yang menentukan, pertama karena hosting sering timeout memang seringnya tengah malam, tapi waktu tengah malam waktu saya sering ngepost.</p>
+
+<p>Memang ada saja kekurangannya ketika pindah ke jekyll, karena beda format dengan wordpress banyak broken link, terutama di bagian kategori dan tags, tapi tidak mengapa, yang pentung alamat url postingan masih sama, karena menggunakan pretty permalink.</p>
+
+<p>Mungkin sekian saja sambat dari saya hehe.</p>
+
+    </div><!-- .post-content -->
+  </article><!-- .post -->
+
+  <!-- Next/previous post navigation TBD -->
+  <!--
+  <nav class="post-navigation">
+    <h2 class="post-nav-title">Read Next</h2>
+    <div class="post-feed">
+      <article class="post post-card">
+        <div class="post-card-inside">
+          <a class="post-card-thumbnail" href="#">
+            <img class="thumbnail" src="#" alt="" />
+          </a>
+          <div class="post-card-content">
+            <header class="post-header">
+              <div class="post-meta">
+                <time class="published" datetime="">Previous post date</time>
+              </div>
+              <h3 class="post-title"><a href="#" rel="bookmark">Previous Post Title</a></h3>
+            </header>
+            <div class="post-excerpt">
+              <p>Previous post excerpt</p>
+              <p class="read-more">
+                <a class="button button-secondary" href="#">Read more</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="post post-card">
+        <div class="post-card-inside">
+          <a class="post-card-thumbnail" href="#">
+            <img class="thumbnail" src="#" alt="" />
+          </a>
+          <div class="post-card-content">
+            <header class="post-header">
+              <div class="post-meta">
+                <time class="published" datetime="">Next post date</time>
+              </div>
+              <h3 class="post-title"><a href="#" rel="bookmark">Next Post Title</a></h3>
+            </header>
+            <div class="post-excerpt">
+              <p>Next post excerpt</p>
+              <p class="read-more">
+                <a class="button button-secondary" href="#">Read more</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </nav>
+  -->
+
+
+      </main><!-- .site-main -->
+    </div><!-- .site-content -->
+
+    
+    
+      <section class="subscribe outer">
+  <div class="inner-sm">
+    
+    
+    <h2 class="subscribe-title">Subscribe for new updates</h2>
+    
+    
+    
+    <p class="subscribe-text">
+      Subscribe to my email newsletter to receive useful articles and special offers. This monthly email is sent out on the first of every month.
+    </p>
+    
+    <form name="subscribeForm" action="/subscribe-success" method="POST" data-netlify-honeypot="bot-field" data-netlify="true" class="subscribe-form">
+  <div class="screen-reader-text">
+    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+  </div>
+  <div class="form-group">
+    <label>
+      <span class="screen-reader-text">Email address</span>
+      <input type="email" name="email" placeholder="Your email address" required>
+    </label>
+  </div>
+  <input type="hidden" name="form-name" value="subscribeForm" />
+  <button class="button" type="submit">Subscribe</button>
+</form><!-- .subscribe-form -->
+
+  </div><!-- inner-sm -->
+</section><!-- .subscribe -->
+
+    
+
+    <footer id="colophon" class="site-footer outer">
+  <div class="inner">
+    <div class="site-footer-inside">
+      <div class="site-info">
+        
+        
+        <span class="copyright">&copy; Stackbit. All rights reserved. This Jamstack site was created with <a href="https://www.stackbit.com/?utm_source=deployed-footer" target="_blank" rel="noopener">Stackbit</a>. Create yours <a href="https://app.stackbit.com/create?theme=ampersand&utm_source=deployed-footer" target="_blank" rel="noopener">now</a>.</span>
+        
+        
+      </div><!-- .site-info -->
+      
+      
+      <div class="social-links">
+        
+          
+          
+<a href="https://twitter.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-twitter" aria-hidden="true"></span><span class="screen-reader-text">Twitter</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://www.instagram.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-instagram" aria-hidden="true"></span><span class="screen-reader-text">Instagram</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://github.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-github" aria-hidden="true"></span><span class="screen-reader-text">GitHub</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://www.linkedin.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-linkedin" aria-hidden="true"></span><span class="screen-reader-text">LinkedIn</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://dev.to/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-dev" aria-hidden="true"></span><span class="screen-reader-text">DEV</span>
+  
+</a>
+
+        
+      </div><!-- .social-links -->
+      
+    </div><!-- .site-footer-inside -->
+  </div><!-- .inner -->
+</footer><!-- .site-footer -->
+
+
+  </div><!-- .site -->
+
+        <!-- Scripts -->
+        <script src="/assets/js/plugins.js"></script>
+        <script src="/assets/js/main.js"></script>
+    </body> 
+</html>

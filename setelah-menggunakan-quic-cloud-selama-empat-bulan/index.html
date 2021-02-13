@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+    <head>    
+
+        <title>Setelah Menggunakan Quic Cloud Selama Empat Bulan - Stackbit Ampersand Theme</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="<p>Berkenalan dengan quic cloud tidak terlalu lama, bertemu dengan cara tidak segaja, waktu itu setelah perpanjang hosting dan pindah server dari singapura ke amerika, tepatnya pada bulan mei, akhirnya bertemu lagi dengan cpanel, sudah lama login ke cpanel.</p>
+
+"/>
+        <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700%7CRoboto:400,400i,700,700i&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="/assets/css/main.css">
+         
+        
+        
+        
+        
+        
+        
+    </head>
+    <body>
+        
+          <div id="page" class="site layout-grid palette-green">
+
+    <header id="masthead" class="site-header outer">
+  <div class="inner">
+    <div class="site-header-inside">
+
+      <div class="site-branding">
+        
+        
+        <p class="site-logo">
+          <a href='/'><img src="/images/logo.svg"
+            alt="Ampersand Logo" /></a>
+        </p>
+        
+        
+        <p class="site-title"><a href='/'>Ampersand</a></p>
+        
+      </div><!-- .site-branding -->
+
+      
+      
+      <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Menu</span><span class="icon-menu"
+        aria-hidden="true"></span></button>
+      <nav id="main-navigation" class="site-nav" aria-label="Main Navigation">
+        <div class="site-nav-inside">
+          <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Menu</span><span class="icon-close"
+              aria-hidden="true"></span></button>
+          <ul class="menu">
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/"
+  
+  
+  class="">
+  
+    Home
+  
+</a>
+
+              </li>
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/about"
+  
+  
+  class="">
+  
+    About
+  
+</a>
+
+              </li>
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/style-guide"
+  
+  
+  class="">
+  
+    Style Guide
+  
+</a>
+
+              </li>
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/contact"
+  
+  
+  class="">
+  
+    Contact
+  
+</a>
+
+              </li>
+            
+          </ul><!-- .menu -->
+        </div><!-- .site-nav-inside -->
+      </nav><!-- .site-navigation -->
+      
+
+    </div><!-- .site-header-inside -->
+  </div><!-- .inner -->
+</header><!-- .site-header -->
+
+
+    <div id="content" class="site-content outer">
+      <main id="main" class="site-main inner">
+
+          <article class="post post-full">
+    <header class="post-header inner-md">
+      <div class="post-meta">
+        <time class="published"
+          datetime="2020-09-28 08:29">Monday, September 28, 2020</time>
+      </div>
+      <h1 class="post-title">Setelah Menggunakan Quic Cloud Selama Empat Bulan</h1>
+      
+      
+    </header><!-- .post-header -->
+    
+    
+    <div class="post-content inner-md">
+      <p>Berkenalan dengan quic cloud tidak terlalu lama, bertemu dengan cara tidak segaja, waktu itu setelah perpanjang hosting dan pindah server dari singapura ke amerika, tepatnya pada bulan mei, akhirnya bertemu lagi dengan cpanel, sudah lama login ke cpanel.</p>
+
+<p>Sebab jarang sekali ngoprek dibagian hosting, karena males aja ngeliat tampilan cpanel yang kaku wkkwkw, akhirnya setelah perpanjang hosting dan memindahkan data backup dan merestore, baru ngeh ada menu Litespeed Web Cache Manager di tab advanced, rasa penasaran pun muncul.</p>
+
+<p>Sebelumnya sudah nyaman dengan cloudflare free, akhirnya nyoba mengaktifkan lwcm di cpanel, langsung bingung deh enggak tau harus ngapain, terus buka dashboard wordpress udah ada plugins yang keinstall sendiri, karena belum tau apa2 jadi curiga, melihat nama plugins hmmm kayaknya karena mengenable LSCache di cpanel.</p>
+
+<p>Semalaman tidak bisa tidur karena rasa penasaran, mencoba mencari referensi tentang litespeed, benda apaan sih ini, jujur ketika awal beli hosting tidak terlalu ngehh tentang spesifikasi web hosting pokoknya yang penting cepet dan harga bersahabat tidak terlalu murah, tidak terlalu mahal.</p>
+
+<p>Ngulik satu persatu menu yang ada di plugins cache tersebut, semua opsi dicobain hingga akhirnya nemu quic cloud yang masih asing di telinga, masuk ke tab general dan berhasil mendapatkan domain key untuk mengakses ke layanan quic cloud seperti critical css dll.</p>
+
+<h2 id="setting-cname-flattening-dan-aname">Setting Cname flattening dan Aname</h2>
+
+<p>Cara setting quic cloud cukup sulit pas awal memang, setelah coba-coba akhirnya berhasil dengan cname flattening atau menggunakan aname, pertama karena sudah menggunakan dns manager dari clouflare nyoba deh pake cname flattening, kalau di dns domain atau cpanel enggak bisa pake apex domain harus subdomain ke www.</p>
+
+<p>Awalnya masih bingung seiring berjalannya waktu ternyata mudah juga, tinggal menambahkan record cname cukup masukan di kolom name dengan @ dan content dengan cname quic.cloud seperti xxx.tier1.quic.cloud kalo mau nambahin www sama caranya kaya tadi kolom name dengan www.</p>
+
+<p>Cara kedua dengan aname, Aname adalah Rekam A memetakan nama ke satu atau beberapa alamat IP saat IP dikenal dan stabil. Data CNAME memetakan nama ke nama lain. Ini hanya boleh digunakan jika tidak ada catatan lain pada nama itu. Catatan ALIAS memetakan nama ke nama lain, tetapi dapat berdampingan dengan catatan lain pada nama itu. menurut (<a rel="noreferrer noopener" href="https://support.dnsimple.com/articles/differences-between-a-cname-alias-url/#:\~:text=The%20A%20record%20maps%20a,other%20records%20on%20that%20name." target="_blank">Dnsimple</a>)</p>
+
+<p>Kebanyakan fitur tersebut ada dilayanan dns manager berbayar, tapi tenang akhirnya menemukan dns manager yang free atau gratis di <a rel="noreferrer noopener" href="https://www.arvancloud.com/en/products/dns" data-type="URL" data-id="https://www.arvancloud.com/en/products/dns" target="_blank">ArvanCloud</a> yang sudah ada fitur aname, setting aname sama seperti menambahkan A record.</p>
+
+<h2 id="pengalaman-menggunakan-quic-cloud">Pengalaman Menggunakan Quic Cloud</h2>
+
+<p>Awalnya sempat berpikir dua kali untuk pindah ke layanan cdn baru, tapi karena penasaran dan sayang juga ada fitur itu tapi enggak dipake, akhirnya memberanikan diri, setelah trial dan error, cdn tersebut tersetting dengan benar dan lancar.</p>
+
+<p>Mulai deh dari situ mengahapus google amp, karena lebih cepet mengguanak cdn quic cloud daripada amp, jadi percuma juga, <s>fuck you</s> amp xixixi, persetan dengan seo dan laoding cepat, pada kenyataanya amp akan menyimpan salinan dari blog kita dan dihost oleh server google, memang menjanjikan loading cepat tapi visitor tidak benar-benar mengunjungi blog kita.</p>
+
+<p>Google bukanah tujuan, hanya gerbang pintu masuk ke berbagai macam web yang ada di dunia, jadi menggunakan amp menurut saya sendiri tidak terlalu membutuhkanya, toh tetep blog masih keindek google.</p>
+
+<p>Mendisable fitur amp real url di cloudflare, dan sepenuhnya menggunakan quic cloud xixixi, pengalaman selama empat bulan tidak terbilang lama juga sih, banyak perbedaan yang terasa, loading jadi cepet banget makanya saya menghapus amp, itu pendapat pribadi tidak ada maksud menjelekkan google amp, pis hehehe.</p>
+
+<h2 id="perbandingan-quic-cloud-dan-tidak-menggunakannya">Perbandingan Quic cloud dan tidak menggunakannya</h2>
+
+<p>Disini saya melakukan perbandingan antar menggunakan cdn dan tidak menggunakan cdn alias default, untuk pengetesan pakai alat dari loader.io dan performance dari sucuri untuk kecepatan loading, atau dengan feeling pas akses langsung wkkw, tidak menggunakan pagespeed insight atau gtmetrix karena hasilnya tidak beda jauh.</p>
+
+<h3 id="test-kecepatan-tanpa-menggunakan-quic-cloud">Test Kecepatan tanpa menggunakan quic cloud<figure class="wp-block-image size-large"></figure></h3>
+
+<p><img loading="lazy" width="768" height="432" src="https://i2.wp.com/wildanfauzy.com/wp-content/uploads/2020/09/performa-no-cdn-min.png?resize=768%2C432&amp;ssl=1" alt="" class="wp-image-8292" data-recalc-dims="1" /> test loader.io tanpa cdn <figure class="wp-block-image size-full"><img loading="lazy" width="768" height="432" src="https://i0.wp.com/wildanfauzy.com/wp-content/uploads/2020/09/tanpa-cdn-min.png?resize=768%2C432&amp;ssl=1" alt="" class="wp-image-8293" data-recalc-dims="1" />test performance tanpa cdn</figure></p>
+
+<p>Gambar diatas adalah hasil tets tanpa menggunakan cdn, server hosting ada di amerika jadi akses dari amerika dan kanada cepat, dan hasil test dari loader.io mendaptkan rata-tasa 63-64 lumayan cepet dengan konfigurasi 250 client over 1 minute.</p>
+
+<h3 id="test-kecepatan-menggunakan-cdn-quic-cloud">Test Kecepatan menggunakan cdn quic cloud<figure class="wp-block-image size-large"></figure></h3>
+
+<p><img loading="lazy" width="768" height="432" src="https://i2.wp.com/wildanfauzy.com/wp-content/uploads/2020/09/respon-min.png?resize=768%2C432&amp;ssl=1" alt="" class="wp-image-8294" data-recalc-dims="1" />test loader.io menggunakan cdn<figure class="wp-block-image size-large"><img loading="lazy" width="768" height="432" src="https://i1.wp.com/wildanfauzy.com/wp-content/uploads/2020/09/performa-min.png?resize=768%2C432&amp;ssl=1" alt="" class="wp-image-8295" data-recalc-dims="1" />test performance mengguanakan cdn</figure></p>
+
+<p>Silakan bandingkan menggunakan dan tanpa menggunakan quic cloud, pengetesan tanpa cdn dengan loader io dapat 63-64 ms dengan tiga kali pengetesan agar mendapatkan hasil yang stabil dan score performance sucuri mendapatkan nilai B.</p>
+
+<p>Sedangkan menggunakan quic cloud mendpatkan score performance A+ dan test loader io rata-rata 5-6 ms dengan enam kali pengetesan, karena awalnya saya engga percaya bisa kecil gitu ms-nya, dan memang stabil.</p>
+
+<h2 id="kelebihan-dan-kekurangan">Kelebihan dan Kekurangan</h2>
+
+<p>Tentu saja semua ada kelebihan dan kekurangnnya, oke langsung saja.</p>
+
+<h3 id="kelebihan"><strong>Kelebihan</strong></h3>
+
+<ul>
+  <li>Gratis</li>
+  <li>Mendukung koneksi QUIC atau http/3</li>
+  <li>Jaringan global untuk pengiriman konten yang cepat</li>
+  <li>Caching konten statis seperti gambar, CSS, dan JavaScript</li>
+  <li>Server Push untuk meminimalkan jumlah permintaan</li>
+  <li>Perlindungan dari serangan DDoS dan spoofing</li>
+  <li>Dukungan ESI untuk caching e-commerce</li>
+</ul>
+
+<h3 id="kekurangan"><strong>Kekurangan</strong></h3>
+
+<ul>
+  <li>Cara setting yang cukup ribet</li>
+  <li>Kuota tergantung tier hosting</li>
+  <li>Masih beta belum final jadi harap maklum kalo ada error xixixi</li>
+</ul>
+
+<p>Perlu dicatat untuk menggunakan quic cloud, hosting kalian pastikan sudah mendukung litespeed webserver dan lscache, bisa sih pake litespeed saja tanpa modul lscache tapi hasil kurang maksimal, percobaan pake hosting pacar saya yang tidak ada modul lscache hasilnya kurang joss.</p>
+
+    </div><!-- .post-content -->
+  </article><!-- .post -->
+
+  <!-- Next/previous post navigation TBD -->
+  <!--
+  <nav class="post-navigation">
+    <h2 class="post-nav-title">Read Next</h2>
+    <div class="post-feed">
+      <article class="post post-card">
+        <div class="post-card-inside">
+          <a class="post-card-thumbnail" href="#">
+            <img class="thumbnail" src="#" alt="" />
+          </a>
+          <div class="post-card-content">
+            <header class="post-header">
+              <div class="post-meta">
+                <time class="published" datetime="">Previous post date</time>
+              </div>
+              <h3 class="post-title"><a href="#" rel="bookmark">Previous Post Title</a></h3>
+            </header>
+            <div class="post-excerpt">
+              <p>Previous post excerpt</p>
+              <p class="read-more">
+                <a class="button button-secondary" href="#">Read more</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="post post-card">
+        <div class="post-card-inside">
+          <a class="post-card-thumbnail" href="#">
+            <img class="thumbnail" src="#" alt="" />
+          </a>
+          <div class="post-card-content">
+            <header class="post-header">
+              <div class="post-meta">
+                <time class="published" datetime="">Next post date</time>
+              </div>
+              <h3 class="post-title"><a href="#" rel="bookmark">Next Post Title</a></h3>
+            </header>
+            <div class="post-excerpt">
+              <p>Next post excerpt</p>
+              <p class="read-more">
+                <a class="button button-secondary" href="#">Read more</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </nav>
+  -->
+
+
+      </main><!-- .site-main -->
+    </div><!-- .site-content -->
+
+    
+    
+      <section class="subscribe outer">
+  <div class="inner-sm">
+    
+    
+    <h2 class="subscribe-title">Subscribe for new updates</h2>
+    
+    
+    
+    <p class="subscribe-text">
+      Subscribe to my email newsletter to receive useful articles and special offers. This monthly email is sent out on the first of every month.
+    </p>
+    
+    <form name="subscribeForm" action="/subscribe-success" method="POST" data-netlify-honeypot="bot-field" data-netlify="true" class="subscribe-form">
+  <div class="screen-reader-text">
+    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+  </div>
+  <div class="form-group">
+    <label>
+      <span class="screen-reader-text">Email address</span>
+      <input type="email" name="email" placeholder="Your email address" required>
+    </label>
+  </div>
+  <input type="hidden" name="form-name" value="subscribeForm" />
+  <button class="button" type="submit">Subscribe</button>
+</form><!-- .subscribe-form -->
+
+  </div><!-- inner-sm -->
+</section><!-- .subscribe -->
+
+    
+
+    <footer id="colophon" class="site-footer outer">
+  <div class="inner">
+    <div class="site-footer-inside">
+      <div class="site-info">
+        
+        
+        <span class="copyright">&copy; Stackbit. All rights reserved. This Jamstack site was created with <a href="https://www.stackbit.com/?utm_source=deployed-footer" target="_blank" rel="noopener">Stackbit</a>. Create yours <a href="https://app.stackbit.com/create?theme=ampersand&utm_source=deployed-footer" target="_blank" rel="noopener">now</a>.</span>
+        
+        
+      </div><!-- .site-info -->
+      
+      
+      <div class="social-links">
+        
+          
+          
+<a href="https://twitter.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-twitter" aria-hidden="true"></span><span class="screen-reader-text">Twitter</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://www.instagram.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-instagram" aria-hidden="true"></span><span class="screen-reader-text">Instagram</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://github.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-github" aria-hidden="true"></span><span class="screen-reader-text">GitHub</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://www.linkedin.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-linkedin" aria-hidden="true"></span><span class="screen-reader-text">LinkedIn</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://dev.to/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-dev" aria-hidden="true"></span><span class="screen-reader-text">DEV</span>
+  
+</a>
+
+        
+      </div><!-- .social-links -->
+      
+    </div><!-- .site-footer-inside -->
+  </div><!-- .inner -->
+</footer><!-- .site-footer -->
+
+
+  </div><!-- .site -->
+
+        <!-- Scripts -->
+        <script src="/assets/js/plugins.js"></script>
+        <script src="/assets/js/main.js"></script>
+    </body> 
+</html>

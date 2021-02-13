@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+    <head>    
+
+        <title>Migrasi Personal Blog ke Hugo Dengan Netlify dan Forestry - Stackbit Ampersand Theme</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="<p>Semua berawal dari promo domain empat ribu yaitu domain my. id sebuah kebanggaan memakai domain. id walaupun dengan subdomain dotmy bukan langsung ke dotid.</p>
+
+"/>
+        <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700%7CRoboto:400,400i,700,700i&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="/assets/css/main.css">
+         
+        
+        
+        
+        
+        
+        
+    </head>
+    <body>
+        
+          <div id="page" class="site layout-grid palette-green">
+
+    <header id="masthead" class="site-header outer">
+  <div class="inner">
+    <div class="site-header-inside">
+
+      <div class="site-branding">
+        
+        
+        <p class="site-logo">
+          <a href='/'><img src="/images/logo.svg"
+            alt="Ampersand Logo" /></a>
+        </p>
+        
+        
+        <p class="site-title"><a href='/'>Ampersand</a></p>
+        
+      </div><!-- .site-branding -->
+
+      
+      
+      <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Menu</span><span class="icon-menu"
+        aria-hidden="true"></span></button>
+      <nav id="main-navigation" class="site-nav" aria-label="Main Navigation">
+        <div class="site-nav-inside">
+          <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Menu</span><span class="icon-close"
+              aria-hidden="true"></span></button>
+          <ul class="menu">
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/"
+  
+  
+  class="">
+  
+    Home
+  
+</a>
+
+              </li>
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/about"
+  
+  
+  class="">
+  
+    About
+  
+</a>
+
+              </li>
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/style-guide"
+  
+  
+  class="">
+  
+    Style Guide
+  
+</a>
+
+              </li>
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/contact"
+  
+  
+  class="">
+  
+    Contact
+  
+</a>
+
+              </li>
+            
+          </ul><!-- .menu -->
+        </div><!-- .site-nav-inside -->
+      </nav><!-- .site-navigation -->
+      
+
+    </div><!-- .site-header-inside -->
+  </div><!-- .inner -->
+</header><!-- .site-header -->
+
+
+    <div id="content" class="site-content outer">
+      <main id="main" class="site-main inner">
+
+          <article class="post post-full">
+    <header class="post-header inner-md">
+      <div class="post-meta">
+        <time class="published"
+          datetime="2020-11-07 07:30">Saturday, November  7, 2020</time>
+      </div>
+      <h1 class="post-title">Migrasi Personal Blog ke Hugo Dengan Netlify dan Forestry</h1>
+      
+      
+    </header><!-- .post-header -->
+    
+    
+    <div class="post-content inner-md">
+      <p>Semua berawal dari promo domain empat ribu yaitu domain my. id sebuah kebanggaan memakai domain. id walaupun dengan subdomain dotmy bukan langsung ke dotid.</p>
+
+<p>Akhirnya beli dua domain aep.my.id dan idan.my.id, untuk domain aep.my.id digunakan untuk projek kecil2 bikin website warung kopi dekat rumah hehehe.</p>
+
+<p>Sedangkan untuk domain idan.my.id buat personal blog atau catatan sehari-hari yang sifatnya rada personal gitu, yaelah namanya juga personal blog.</p>
+
+<p>Pas awal menggunakan cms wordpress dengan vps dan terus berganti ke hosting website ini, tapi setelah dipikir2 cuma lima postingan tapi ngabisin space 200mb bikin menuhin space aja.</p>
+
+<p>Tertarik dengan static generate blog seperti hexo dan github pages, setelah nyoba ngoprek berhari2 akhirnya milih framework hugo, selain gampang cara mekenya, ternyata hugo ringan sekali.</p>
+
+<h2 id="cara-install-hugo-di-ubuntu">Cara Install Hugo di Ubuntu</h2>
+
+<p>Cara pasang di xubuntu atau ubuntu ada dua versi, mau versi lawas atau terbaru, kalo yang lawas pake apt install, versi terbaru install menggunakan snap milik ubuntu.</p>
+
+<pre class="wp-block-code"><code>sudo snap install hugo</code></pre>
+
+<pre class="wp-block-code"><code>hugo version</code></pre>
+
+<p>Menggunakan snap untuk instalasi hugo versi terbaru atau apt versi lawas, bisa juga pake makefile pake source code hugo tapi males ahh lama wkwkw.<figure class="wp-block-image size-large"></figure></p>
+
+<p><img loading="lazy" width="768" height="538" src="https://i2.wp.com/wildanfauzy.com/wp-content/uploads/2020/11/20201105_205718.jpg?resize=768%2C538&#038;ssl=1" alt="" class="wp-image-8615" data-recalc-dims="1" /> &lt;/figure&gt;</p>
+
+<h2 id="cara-membuat-blog-dengan-hugo">Cara Membuat Blog dengan Hugo</h2>
+
+<p>Setelah berhasil memasang hugo di laptop kalian selanjutnya membuat blog dengan hugo, cukup mudah kok tinggal lakukan perintah berikut blog langsung jadi.</p>
+
+<pre class="wp-block-code"><code>hugo new site test.example.com</code></pre>
+<figure class="wp-block-image size-large">
+
+<img loading="lazy" width="768" height="813" src="https://i2.wp.com/wildanfauzy.com/wp-content/uploads/2020/11/20201105_210328.jpg?resize=768%2C813&#038;ssl=1" alt="" class="wp-image-8616" data-recalc-dims="1" /> </figure>
+
+<p>iya udah jadi blog kamu, tapi jangan seneng dulu itu masih kosongan semua, harus diisi semuanya, membuat postingan, halaman, thema, dan widget kesukaan kalian.</p>
+
+<h3 id="membuat-postingan">Membuat postingan</h3>
+
+<pre class="wp-block-code"><code>hugo new post/first.md</code></pre>
+
+<h3 id="membuat-tema-hugo">Membuat tema hugo</h3>
+
+<pre class="wp-block-code"><code>hugo new theme (nama tema kamu)</code></pre>
+
+<h3 id="menjalankan-hugo-di-localhost">Menjalankan hugo di localhost</h3>
+
+<p>Jika kalian sudah membuat blog dan tema serta postingan awal, kalian bisa langsung mencoba website yang sudah kalian buat di localhost</p>
+
+<pre class="wp-block-code"><code>cd (folderwebsite)
+hugo server</code></pre>
+<figure class="wp-block-image size-large">
+
+<img loading="lazy" width="768" height="432" src="https://i2.wp.com/wildanfauzy.com/wp-content/uploads/2020/11/hugo-server.png?resize=768%2C432&#038;ssl=1" alt="" class="wp-image-8623" data-recalc-dims="1" /> </figure>
+
+<p>Tunggu beberapa detik sampai website kamu siap, lalu kalian bisa cek blog yang sudah dibuat di browser di alamat http://localhost:1313/ jika sudah cocok dengan tampilan dan tidak ada error bisa di push ke repo lalu deploy.</p>
+
+<p>Setelah udah semua tinggal push ke repo github kalian deh, tapi kayaknya ribet deh yah, kalo bikin semuanya dari awal hehe.</p>
+
+<h2 id="blog-hugo-dengan-netlify-dan-forestry">Blog Hugo dengan Netlify dan Forestry</h2>
+
+<p>Pertama kalian harus mempunyai akun github, selanjutnya netlify dan forestry, tenang semuanya bisa log in with github kok.</p>
+
+<ul>
+  <li>Akun Github</li>
+  <li>Akun Netlify</li>
+  <li>Akun Forestry</li>
+</ul>
+
+<p>Pertama Fork repo dari <a rel="noreferrer noopener" href="https://github.com/themefisher/northendlab-hugo" target="_blank">northendlab-hugo</a> setelah tercopy semua ke akun github kalian, selanjutnya tinggal import ke forestry, dan log in with github pilih repo yang sudah difork di akun github, tunggu sampai proses selesai.</p>
+
+<p>Jika proses import selesai sampai ada tulisan welcome to your cms, selanjutnya host website kalian di Netlify, login dengan akun github lalu pilih new site from git, pilih github dan repi yang sudah kalian fork tadi.</p>
+
+<p>Tunggu hingga proses deploy beres, sudah deh blog hugo kalian online, jika mempunyai domain tambahkan domain di Netlify dan menggunakan dns dari Netlify otomatis akan terkonfigurasi langsung.</p>
+
+<p>Selanjutnya Tinggal edit blog sesuai selera kalian, selamat mencoba, hasilnya sperti blog <a href="https://idan.my.id/">https://idan.my.id</a></p>
+
+<p>Silakan tonton video membuat blog hugo dalam lima menit dibawah ini, harus sabar wkwkwk try and error. <figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"></figure></p>
+
+<div class="wp-block-embed__wrapper">
+</div>
+<p>&lt;/figure&gt;</p>
+
+    </div><!-- .post-content -->
+  </article><!-- .post -->
+
+  <!-- Next/previous post navigation TBD -->
+  <!--
+  <nav class="post-navigation">
+    <h2 class="post-nav-title">Read Next</h2>
+    <div class="post-feed">
+      <article class="post post-card">
+        <div class="post-card-inside">
+          <a class="post-card-thumbnail" href="#">
+            <img class="thumbnail" src="#" alt="" />
+          </a>
+          <div class="post-card-content">
+            <header class="post-header">
+              <div class="post-meta">
+                <time class="published" datetime="">Previous post date</time>
+              </div>
+              <h3 class="post-title"><a href="#" rel="bookmark">Previous Post Title</a></h3>
+            </header>
+            <div class="post-excerpt">
+              <p>Previous post excerpt</p>
+              <p class="read-more">
+                <a class="button button-secondary" href="#">Read more</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="post post-card">
+        <div class="post-card-inside">
+          <a class="post-card-thumbnail" href="#">
+            <img class="thumbnail" src="#" alt="" />
+          </a>
+          <div class="post-card-content">
+            <header class="post-header">
+              <div class="post-meta">
+                <time class="published" datetime="">Next post date</time>
+              </div>
+              <h3 class="post-title"><a href="#" rel="bookmark">Next Post Title</a></h3>
+            </header>
+            <div class="post-excerpt">
+              <p>Next post excerpt</p>
+              <p class="read-more">
+                <a class="button button-secondary" href="#">Read more</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </nav>
+  -->
+
+
+      </main><!-- .site-main -->
+    </div><!-- .site-content -->
+
+    
+    
+      <section class="subscribe outer">
+  <div class="inner-sm">
+    
+    
+    <h2 class="subscribe-title">Subscribe for new updates</h2>
+    
+    
+    
+    <p class="subscribe-text">
+      Subscribe to my email newsletter to receive useful articles and special offers. This monthly email is sent out on the first of every month.
+    </p>
+    
+    <form name="subscribeForm" action="/subscribe-success" method="POST" data-netlify-honeypot="bot-field" data-netlify="true" class="subscribe-form">
+  <div class="screen-reader-text">
+    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+  </div>
+  <div class="form-group">
+    <label>
+      <span class="screen-reader-text">Email address</span>
+      <input type="email" name="email" placeholder="Your email address" required>
+    </label>
+  </div>
+  <input type="hidden" name="form-name" value="subscribeForm" />
+  <button class="button" type="submit">Subscribe</button>
+</form><!-- .subscribe-form -->
+
+  </div><!-- inner-sm -->
+</section><!-- .subscribe -->
+
+    
+
+    <footer id="colophon" class="site-footer outer">
+  <div class="inner">
+    <div class="site-footer-inside">
+      <div class="site-info">
+        
+        
+        <span class="copyright">&copy; Stackbit. All rights reserved. This Jamstack site was created with <a href="https://www.stackbit.com/?utm_source=deployed-footer" target="_blank" rel="noopener">Stackbit</a>. Create yours <a href="https://app.stackbit.com/create?theme=ampersand&utm_source=deployed-footer" target="_blank" rel="noopener">now</a>.</span>
+        
+        
+      </div><!-- .site-info -->
+      
+      
+      <div class="social-links">
+        
+          
+          
+<a href="https://twitter.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-twitter" aria-hidden="true"></span><span class="screen-reader-text">Twitter</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://www.instagram.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-instagram" aria-hidden="true"></span><span class="screen-reader-text">Instagram</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://github.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-github" aria-hidden="true"></span><span class="screen-reader-text">GitHub</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://www.linkedin.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-linkedin" aria-hidden="true"></span><span class="screen-reader-text">LinkedIn</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://dev.to/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-dev" aria-hidden="true"></span><span class="screen-reader-text">DEV</span>
+  
+</a>
+
+        
+      </div><!-- .social-links -->
+      
+    </div><!-- .site-footer-inside -->
+  </div><!-- .inner -->
+</footer><!-- .site-footer -->
+
+
+  </div><!-- .site -->
+
+        <!-- Scripts -->
+        <script src="/assets/js/plugins.js"></script>
+        <script src="/assets/js/main.js"></script>
+    </body> 
+</html>

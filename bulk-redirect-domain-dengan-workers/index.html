@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+    <head>    
+
+        <title>Bulk Redirect Domain Dengan Workers - Stackbit Ampersand Theme</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="<p>Gatel kalo liat diskonan, habis bangun tidur dapet notif diskonan domain .com setengah sadar akhirnya mencet checkout, wassalam akhirnya beli domain lagi, entah kayaknya bakal jadi kolektor domaian hehehe.</p>
+
+"/>
+        <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700%7CRoboto:400,400i,700,700i&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="/assets/css/main.css">
+         
+        
+        
+        
+        
+        
+        
+    </head>
+    <body>
+        
+          <div id="page" class="site layout-grid palette-green">
+
+    <header id="masthead" class="site-header outer">
+  <div class="inner">
+    <div class="site-header-inside">
+
+      <div class="site-branding">
+        
+        
+        <p class="site-logo">
+          <a href='/'><img src="/images/logo.svg"
+            alt="Ampersand Logo" /></a>
+        </p>
+        
+        
+        <p class="site-title"><a href='/'>Ampersand</a></p>
+        
+      </div><!-- .site-branding -->
+
+      
+      
+      <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Menu</span><span class="icon-menu"
+        aria-hidden="true"></span></button>
+      <nav id="main-navigation" class="site-nav" aria-label="Main Navigation">
+        <div class="site-nav-inside">
+          <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Menu</span><span class="icon-close"
+              aria-hidden="true"></span></button>
+          <ul class="menu">
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/"
+  
+  
+  class="">
+  
+    Home
+  
+</a>
+
+              </li>
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/about"
+  
+  
+  class="">
+  
+    About
+  
+</a>
+
+              </li>
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/style-guide"
+  
+  
+  class="">
+  
+    Style Guide
+  
+</a>
+
+              </li>
+            
+              
+              
+              <li class="menu-item">
+                
+                
+<a href="/contact"
+  
+  
+  class="">
+  
+    Contact
+  
+</a>
+
+              </li>
+            
+          </ul><!-- .menu -->
+        </div><!-- .site-nav-inside -->
+      </nav><!-- .site-navigation -->
+      
+
+    </div><!-- .site-header-inside -->
+  </div><!-- .inner -->
+</header><!-- .site-header -->
+
+
+    <div id="content" class="site-content outer">
+      <main id="main" class="site-main inner">
+
+          <article class="post post-full">
+    <header class="post-header inner-md">
+      <div class="post-meta">
+        <time class="published"
+          datetime="2020-11-22 17:53">Sunday, November 22, 2020</time>
+      </div>
+      <h1 class="post-title">Bulk Redirect Domain Dengan Workers</h1>
+      
+      
+    </header><!-- .post-header -->
+    
+    
+    <div class="post-content inner-md">
+      <p>Gatel kalo liat diskonan, habis bangun tidur dapet notif diskonan domain .com setengah sadar akhirnya mencet checkout, wassalam akhirnya beli domain lagi, entah kayaknya bakal jadi kolektor domaian hehehe.</p>
+
+<p>Akhirnya merenung setelah membeli domain, buat apa yah ini domain kalo bikin projek juga bingung bikin apa lagi, akhirnya dipake buat pendamping domain my.id di blog pribadi, awalnya jadi alias domain, tapi mikir lagi mending jadi primary domain saja.</p>
+
+<p>Tapi kalo redirect satu per satu setiap postingan ke alamat baru kayaknya bakal capek, copy paste satu-satu alamat blog, akhirnya kembali lagi dengan cloudflare workers.</p>
+
+<h2 id="bagaimana-bulk-redirect-domain-dengan-cloudflare-workers">Bagaimana bulk redirect domain dengan cloudflare Workers?</h2>
+
+<p>Pertama Bikin dulu workers, jika melihat di example workers website bisa dengan perintah bulk redirect tapi tetep saja harus masukin satu-satu alamatnya, redirect satu domain ke banyak domain dengan parameter /*.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="no">base</span> <span class="o">=</span> <span class="s2">"https://example.com"</span>
+<span class="k">const</span> <span class="no">statusCode</span> <span class="o">=</span> <span class="mi">301</span>
+
+<span class="k">async</span> <span class="k">function</span> <span class="nf">handleRequest</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">const</span> <span class="no">url</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">URL</span><span class="p">(</span><span class="nx">request</span><span class="o">.</span><span class="nx">url</span><span class="p">)</span>
+<span class="nx">const</span> <span class="p">{</span> <span class="nx">pathname</span><span class="p">,</span> <span class="nx">search</span><span class="p">,</span> <span class="nb">hash</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">url</span>
+
+<span class="k">const</span> <span class="no">destinationURL</span> <span class="o">=</span> <span class="nx">base</span> <span class="o">+</span> <span class="nx">pathname</span> <span class="o">+</span> <span class="nx">search</span> <span class="o">+</span> <span class="nb">hash</span>
+
+<span class="k">return</span> <span class="nx">Response</span><span class="o">.</span><span class="nx">redirect</span><span class="p">(</span><span class="nx">destinationURL</span><span class="p">,</span> <span class="nx">statusCode</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"fetch"</span><span class="p">,</span> <span class="k">async</span> <span class="nx">event</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="nx">event</span><span class="o">.</span><span class="nx">respondWith</span><span class="p">(</span><span class="nx">handleRequest</span><span class="p">(</span><span class="nx">event</span><span class="o">.</span><span class="nx">request</span><span class="p">))</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>Cara diatas lebih efesien daripada manual satu-satu redirect ke alamat baru, tinggal sesuaikan dengan alamat parameter blog kalian, jika di wordpress menggunakan pretty permalink, ganti destinasi url dengan base + pathname, di jekyll menggunakan parameter pretty permalink, seperti ini perintahnya.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="no">base</span> <span class="o">=</span> <span class="s2">"http://aidanblog.com/"</span>
+<span class="k">const</span> <span class="no">statusCode</span> <span class="o">=</span> <span class="mi">301</span>
+
+<span class="k">async</span> <span class="k">function</span> <span class="nf">handleRequest</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">const</span> <span class="no">url</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">URL</span><span class="p">(</span><span class="nx">request</span><span class="o">.</span><span class="nx">url</span><span class="p">)</span>
+<span class="nx">const</span> <span class="p">{</span> <span class="nx">pathname</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">url</span>
+
+<span class="k">const</span> <span class="no">destinationURL</span> <span class="o">=</span> <span class="nx">base</span> <span class="o">+</span> <span class="nx">pathname</span>
+
+<span class="k">return</span> <span class="nx">Response</span><span class="o">.</span><span class="nx">redirect</span><span class="p">(</span><span class="nx">destinationURL</span><span class="p">,</span> <span class="nx">statusCode</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"fetch"</span><span class="p">,</span> <span class="k">async</span> <span class="nx">event</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="nx">event</span><span class="o">.</span><span class="nx">respondWith</span><span class="p">(</span><span class="nx">handleRequest</span><span class="p">(</span><span class="nx">event</span><span class="o">.</span><span class="nx">request</span><span class="p">))</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h2 id="langkah-langkah-bulk-redirect">Langkah-langkah bulk redirect</h2>
+
+<p>Pertama pastikan awan oren di dns cloudflare menyala agar worker bisa me-route dengan alamat domain yang dituju.</p>
+
+<p>Mengganti ssl menjadi flexsibel, agar tidak mendapatkan peringatan too many redirection pada browser, di pengaturan dns, masukan alamat sesuka kalian hehehe, disini A record saya menggunakan ip 1.1.1. karena memang domain dipakai hanya untuk redirect.</p>
+
+<p>Selanjutnya membuat workers dengan kode diatas tadi jika sudah kembali ke menu workers dan tambahkan add route, tidak lupa tambahkan parameter /* diakhir domain seperti ini.<figure class="wp-block-image size-large"></figure></p>
+
+<p><img loading="lazy" width="768" height="432" src="https://i0.wp.com/wildanfauzy.com/wp-content/uploads/2020/11/redirect.png?resize=768%2C432&amp;ssl=1" alt="" class="wp-image-8648" srcset="https://i0.wp.com/wildanfauzy.com/wp-content/uploads/2020/11/redirect.png?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/wildanfauzy.com/wp-content/uploads/2020/11/redirect.png?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/wildanfauzy.com/wp-content/uploads/2020/11/redirect.png?resize=150%2C84&amp;ssl=1 150w, https://i0.wp.com/wildanfauzy.com/wp-content/uploads/2020/11/redirect.png?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/wildanfauzy.com/wp-content/uploads/2020/11/redirect.png?resize=373%2C210&amp;ssl=1 373w, https://i0.wp.com/wildanfauzy.com/wp-content/uploads/2020/11/redirect.png?w=1366&amp;ssl=1 1366w" sizes="(max-width: 768px) 100vw, 768px" data-recalc-dims="1" /> &lt;/figure&gt;</p>
+
+<p>Setelah berhasil menambahkan route domain dengan workers, selanjutnya clear cache di cloudflare biar enggak ada cache yang tersisa, hasilnya jika mengakses sebuah postingan seperti alamat domainlama.com/membuat-anak akan otomatis ke redirect ke domainbaru.com/membuat-anak.</p>
+
+<p>Tidak perlu menambahkan redirect satu-satu ke alamat domain baru, tinggal sesuaikan dengan paramater alamat domain kalian maka akan otomatis teralihkan, cukup sekian dan terima kasih.</p>
+
+    </div><!-- .post-content -->
+  </article><!-- .post -->
+
+  <!-- Next/previous post navigation TBD -->
+  <!--
+  <nav class="post-navigation">
+    <h2 class="post-nav-title">Read Next</h2>
+    <div class="post-feed">
+      <article class="post post-card">
+        <div class="post-card-inside">
+          <a class="post-card-thumbnail" href="#">
+            <img class="thumbnail" src="#" alt="" />
+          </a>
+          <div class="post-card-content">
+            <header class="post-header">
+              <div class="post-meta">
+                <time class="published" datetime="">Previous post date</time>
+              </div>
+              <h3 class="post-title"><a href="#" rel="bookmark">Previous Post Title</a></h3>
+            </header>
+            <div class="post-excerpt">
+              <p>Previous post excerpt</p>
+              <p class="read-more">
+                <a class="button button-secondary" href="#">Read more</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="post post-card">
+        <div class="post-card-inside">
+          <a class="post-card-thumbnail" href="#">
+            <img class="thumbnail" src="#" alt="" />
+          </a>
+          <div class="post-card-content">
+            <header class="post-header">
+              <div class="post-meta">
+                <time class="published" datetime="">Next post date</time>
+              </div>
+              <h3 class="post-title"><a href="#" rel="bookmark">Next Post Title</a></h3>
+            </header>
+            <div class="post-excerpt">
+              <p>Next post excerpt</p>
+              <p class="read-more">
+                <a class="button button-secondary" href="#">Read more</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </nav>
+  -->
+
+
+      </main><!-- .site-main -->
+    </div><!-- .site-content -->
+
+    
+    
+      <section class="subscribe outer">
+  <div class="inner-sm">
+    
+    
+    <h2 class="subscribe-title">Subscribe for new updates</h2>
+    
+    
+    
+    <p class="subscribe-text">
+      Subscribe to my email newsletter to receive useful articles and special offers. This monthly email is sent out on the first of every month.
+    </p>
+    
+    <form name="subscribeForm" action="/subscribe-success" method="POST" data-netlify-honeypot="bot-field" data-netlify="true" class="subscribe-form">
+  <div class="screen-reader-text">
+    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+  </div>
+  <div class="form-group">
+    <label>
+      <span class="screen-reader-text">Email address</span>
+      <input type="email" name="email" placeholder="Your email address" required>
+    </label>
+  </div>
+  <input type="hidden" name="form-name" value="subscribeForm" />
+  <button class="button" type="submit">Subscribe</button>
+</form><!-- .subscribe-form -->
+
+  </div><!-- inner-sm -->
+</section><!-- .subscribe -->
+
+    
+
+    <footer id="colophon" class="site-footer outer">
+  <div class="inner">
+    <div class="site-footer-inside">
+      <div class="site-info">
+        
+        
+        <span class="copyright">&copy; Stackbit. All rights reserved. This Jamstack site was created with <a href="https://www.stackbit.com/?utm_source=deployed-footer" target="_blank" rel="noopener">Stackbit</a>. Create yours <a href="https://app.stackbit.com/create?theme=ampersand&utm_source=deployed-footer" target="_blank" rel="noopener">now</a>.</span>
+        
+        
+      </div><!-- .site-info -->
+      
+      
+      <div class="social-links">
+        
+          
+          
+<a href="https://twitter.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-twitter" aria-hidden="true"></span><span class="screen-reader-text">Twitter</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://www.instagram.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-instagram" aria-hidden="true"></span><span class="screen-reader-text">Instagram</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://github.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-github" aria-hidden="true"></span><span class="screen-reader-text">GitHub</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://www.linkedin.com/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-linkedin" aria-hidden="true"></span><span class="screen-reader-text">LinkedIn</span>
+  
+</a>
+
+        
+          
+          
+<a href="https://dev.to/"
+   target="_blank"
+   rel="noopener "
+  class="button button-icon">
+  
+    <span class="icon fab fa-dev" aria-hidden="true"></span><span class="screen-reader-text">DEV</span>
+  
+</a>
+
+        
+      </div><!-- .social-links -->
+      
+    </div><!-- .site-footer-inside -->
+  </div><!-- .inner -->
+</footer><!-- .site-footer -->
+
+
+  </div><!-- .site -->
+
+        <!-- Scripts -->
+        <script src="/assets/js/plugins.js"></script>
+        <script src="/assets/js/main.js"></script>
+    </body> 
+</html>
