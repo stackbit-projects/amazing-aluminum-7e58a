@@ -90,6 +90,7 @@ sass:
   precision: 10
 plugins:
   - jekyll-menus
+  - jekyll-paginate
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -106,3 +107,5 @@ exclude:
 collections:
   posts:
     permalink: '/:title/'
+paginate: 8
+paginate_path: "/page/:num"
